@@ -12,51 +12,47 @@ crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="container">
-
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p>
-        <a class="button btn btn-lg" href="/scrape" role="button">Scrape new Mars data</a>
-      </p>
-    </div>
-    <div class="container-fluid">
+  <div class="container" style="background-color:lightblue" >
+      <div class="container-fluid" style="background-color:rgb(103, 171, 192)">
+          <center><h1>Mission to Mars</h1>
+          <p>
+            <a class="button btn btn-lg" href="/scrape" role="button"><strong>Click to Scrape new Mars data</strong></a>
+          </p></center>         
+      </div>  
+      <div class="row" style="background-color:lightblue">
+          <div class="col-md-3 col-xs-3">
+            <h3>Latest Mars news</h3>
+            <h4> {{ mars.news_title }}</h4>
+            <p> {{mars.summary}} </p>
+          </div>
+          <div class="col-md-8 col-xs-8">
+              <h3>Mars facts</h3>
+               <p>
+                 {{mars.marstable | safe}}
+               </p>
+          </div>    
+          
+      </div>  
       <div class="row">
-        <div class="col-md-12 col-xs-12">
-          <h2>Latest Mars news</h2>
-          <h4> {{ mars.news_title }}</h4>
-          <p> {{mars.summary}} </p>
+         <div class="col-md-3 col-xs-3">
+              <h3>Current weather on Mars</h3>
+              <p>
+                {{mars.mars_weather}}
+              </p>
+          </div> 
+        <div class="col-md-9 col-xs-9">
+          <h2>Featured Mars Image</h2>
+          <img class="img" src="{{mars.featured_image_url}}" alt="Mars featured image" width="475" height="500"/>
         </div>
-      </div>
-    </div>
+        
+      </div> 
+      <br><br> 
+ </div>
 
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8 col-xs-12 big_box">
-        <h2>Featured Mars Image</h2>
-        <img class="img" src="{{mars.featured_image_url}}" alt="Mars featured image"/>
-      </div></br>
-     <hr>
-      <div class="col-md-4 col-xs-12">
-      <div class="row weather-box" >
-          <div class="col-md-12">
-        <h3>Current weather on Mars</h3>
-        <p>
-          {{mars.mars_weather}}
-        </p>
-      </div>
-      </div>
-      <hr>
-      <div class="col-md-12 col-xs-12">
-      <div>
-        <h3>Mars facts</h3>
-        <p>
-          {{mars.mars_table | safe}}
-        </p>
-      </div>
-      </div>
-    </div>
-    </div>
+
+ <!--- Scrape Mars-->
+   
+  </div>
   </body>
 
   </html>
