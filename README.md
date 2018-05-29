@@ -1,6 +1,23 @@
 
 
 ```python
+from IPython.display import Image
+```
+
+
+```python
+Image(filename='Mars_localhost5000page.png')
+```
+
+
+
+
+![png](output_1_0.png)
+
+
+
+
+```python
 import pandas as pd
 import numpy as np
 
@@ -64,8 +81,8 @@ print("The summary of this latest news is:",news_p)
 ```
 
     -------------------------
-    The latest Mars news is: Results of Heat Shield Testing
-    The summary of this latest news is: A post-test inspection of the composite structure for a heat shield to be used on the Mars 2020 mission revealed that a fracture occurred during structural testing.
+    The latest Mars news is: InSight Steers Toward Mars
+    The summary of this latest news is: The spacecraft has completed its first trajectory correction maneuver.
     
 
 
@@ -89,14 +106,14 @@ image_url
 
 
 
-    '/spaceimages/images/mediumsize/PIA17564_ip.jpg'
+    '/spaceimages/images/mediumsize/PIA16763_ip.jpg'
 
 
 
 
 ```python
 # Get the url
-jpl_logo_href = jpl_soup.find_all('div', class_='jpl_logo')
+jpl_logo_href = jplsoup.find_all('div', class_='jpl_logo')
 print(jpl_logo_href)
 ```
 
@@ -111,14 +128,14 @@ print(jpl_logo_href)
 ```python
 # Create BeautifulSoup object; parse with 'html.parser'
 html_page = browser.html
-jpl_soup = BeautifulSoup(html_page, "lxml")
+jplsoup = BeautifulSoup(html_page, "lxml")
 ```
 
 
 ```python
 # Get all the hrefs of the url
 links = []
-for link in jpl_soup.find_all('a'):
+for link in jplsoup.find_all('a'):
     links.append(link.get('href'))
  
 ```
@@ -141,7 +158,7 @@ featured_image_url = "https://"+jpl_link+image_url
 print(featured_image_url)
 ```
 
-    https://www.jpl.nasa.gov/spaceimages/images/mediumsize/PIA17564_ip.jpg
+    https://www.jpl.nasa.gov/spaceimages/images/mediumsize/PIA16763_ip.jpg
     
 
 
@@ -167,7 +184,7 @@ weather
 
 
 
-    <p class="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text" data-aria-label-part="0" lang="en">Sol 2030 (April 22, 2018), Sunny, high -4C/24F, low -73C/-99F, pressure at 7.21 hPa, daylight 05:25-17:21</p>
+    <p class="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text" data-aria-label-part="0" lang="en">Sol 2060 (May 23, 2018), Sunny, high 4C/39F, low -73C/-99F, pressure at 7.43 hPa, daylight 05:20-17:20</p>
 
 
 
@@ -180,7 +197,7 @@ mars_weather
 
 
 
-    'Sol 2030 (April 22, 2018), Sunny, high -4C/24F, low -73C/-99F, pressure at 7.21 hPa, daylight 05:25-17:21'
+    'Sol 2060 (May 23, 2018), Sunny, high 4C/39F, low -73C/-99F, pressure at 7.43 hPa, daylight 05:20-17:20'
 
 
 
